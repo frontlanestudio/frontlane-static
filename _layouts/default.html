@@ -8,11 +8,14 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Space+Grotesk:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 </head>
 <body>
+  <canvas class="hex-canvas" id="hexCanvas"></canvas>
+  <div class="grain"></div>
+
   <header class="site-header">
     <div class="container header-container">
       <a href="{{ '/' | relative_url }}" class="logo-link">
@@ -27,15 +30,13 @@
       
       <nav class="site-nav">
         <a href="https://frontlanestudio.com" target="_blank" class="nav-link">Main Site</a>
-        <a href="https://github.com/frontlanestudio/frontlane-static" target="_blank" class="nav-link btn-primary">GitHub</a>
+        <a href="https://github.com/frontlanestudio/frontlane-static" target="_blank" class="nav-link btn-primary glow-btn">GitHub</a>
       </nav>
     </div>
   </header>
 
   <main class="site-main">
-    <div class="container content-container">
-      {{ content }}
-    </div>
+    {{ content }}
   </main>
 
   <footer class="site-footer">
@@ -43,5 +44,8 @@
       <p>&copy; {{ site.time | date: "%Y" }} Frontlane Studio. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="{{ '/assets/js/canvas-bg.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/animations.js' | relative_url }}"></script>
 </body>
 </html>

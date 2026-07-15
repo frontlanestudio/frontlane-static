@@ -3,46 +3,101 @@ layout: default
 title: "Frontlane Static - Documentation"
 ---
 
-# Frontlane Static
+<section class="hero container">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  
+  <div class="hero-badge reveal">
+    <div class="hero-badge-dot"></div>
+    v1.0.0 is live
+  </div>
 
-> Turn your dynamic enterprise sites into blazing-fast, perfect static clones.
+  <h1 class="hero-title reveal delay-1">Perfect static clones,<br>blazing fast.</h1>
+  
+  <p class="hero-subtitle reveal delay-2">
+    Turn dynamic enterprise sites into completely offline, hyper-accurate static clones. Bypasses WAFs, renders JS apps natively, and intelligently maps all assets. Built in Rust.
+  </p>
 
-**Frontlane Static** is an incredibly fast, highly concurrent static site crawler and archiver built in Rust. It was designed from the ground up to handle enterprise-level crawling, bypassing complex WAFs (like Cloudflare), rendering heavy JavaScript applications via a headless browser, and cleanly rewriting all internal CSS/HTML links so that your offline clone works perfectly.
+  <div class="hero-actions reveal delay-3">
+    <a href="#install" class="btn-primary">Get Started</a>
+    <a href="https://github.com/frontlanestudio/frontlane-static" class="btn-secondary">View Source</a>
+  </div>
 
-Created by [Frontlane Studio](https://frontlanestudio.com).
+  <div class="terminal-wrapper reveal delay-4">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="term-dot r"></div>
+        <div class="term-dot y"></div>
+        <div class="term-dot g"></div>
+      </div>
+      <div class="terminal-title">~/projects/frontlane-static</div>
+    </div>
+    <div class="terminal-body">
+      <div><span class="term-prompt">➜</span> <span class="term-cmd">frontlane-static</span> <span class="term-arg">"https://example.com"</span> <span class="term-dim">--output ./backup --headless</span></div>
+      <div style="margin-top:0.5rem"><span class="term-dim">[INFO]</span> Initializing headless browser engine...</div>
+      <div><span class="term-dim">[INFO]</span> Bypassing WAF and parsing sitemap...</div>
+      <div><span class="term-dim">[INFO]</span> Found 1,248 assets to archive.</div>
+      
+      <div class="term-progress">
+        <span class="term-warning">Downloading</span>
+        <div class="term-bar-wrap">
+          <div class="term-bar-fill"></div>
+        </div>
+        <span class="term-dim">843 / 1,248</span>
+      </div>
+      
+      <div style="margin-top:1rem; opacity:0; animation: fadeIn 4s infinite 3s;"><span class="term-success">✔</span> Archive complete! Saved to ./backup in 1.4s</div>
+    </div>
+  </div>
+</section>
 
-## 🌟 Key Features
+<section class="features-section container">
+  <div class="section-header reveal">
+    <h2 class="hero-title" style="font-size: 3rem;">Engineered for scale.</h2>
+    <p class="hero-subtitle" style="margin-bottom:0;">Everything you need to archive modern, complex web applications perfectly.</p>
+  </div>
 
-*   **1:1 Asset Resolution:** Accurately downloads and perfectly maps every HTML, CSS, JavaScript, Image, Font, and Video asset.
-*   **Deep CSS Link Rewriting:** Iteratively resolves `url()` paths inside stylesheets, no matter how deeply nested they are.
-*   **Enterprise WAF Bypassing:** Inherits native sitemap parsers and spoofed User-Agents to glide through Cloudflare and other CDNs without getting blocked.
-*   **JavaScript Rendering (Headless Chrome):** Natively spins up a headless Chromium instance to fully render React/Vue/Angular sites before downloading the DOM.
-*   **Highly Concurrent:** Reaps the power of Tokio and `DashMap` to parallelize asset discovery without stack overflows.
-*   **Beautiful CLI:** See exactly how long your crawl will take with dynamic ETA progress bars based on your sitemap.
+  <div class="bento-grid">
+    <!-- Card 1 -->
+    <div class="bento-card bento-wide reveal">
+      <div class="bento-icon">⚡️</div>
+      <h3>Hyper-Concurrent Rust Engine</h3>
+      <p>Built on Tokio and DashMap, the spider concurrently downloads and parses assets across thousands of connections without blocking, ensuring maximum network saturation.</p>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="bento-card reveal delay-1">
+      <div class="bento-icon">🧩</div>
+      <h3>Headless JS Rendering</h3>
+      <p>Natively spins up headless Chromium to execute React, Vue, and Angular payloads before saving the DOM, capturing the true visual state of the site.</p>
+    </div>
 
-## 📦 Installation
+    <!-- Card 3 -->
+    <div class="bento-card reveal delay-2">
+      <div class="bento-icon">🛡️</div>
+      <h3>WAF Evasion</h3>
+      <p>Intelligently inherits sitemap parsers and spoofs User-Agents to glide through Cloudflare and enterprise CDNs completely undetected.</p>
+    </div>
 
-To install **Frontlane Static**, you'll need [Rust and Cargo](https://rustup.rs/) installed on your machine.
+    <!-- Card 4 -->
+    <div class="bento-card reveal">
+      <div class="bento-icon">🔗</div>
+      <h3>Deep Asset Rewriting</h3>
+      <p>Scans HTML and iteratively dives deep into CSS files to accurately resolve and perfectly remap `url()` paths, so your offline clone never breaks.</p>
+    </div>
 
-```bash
-git clone https://github.com/frontlanestudio/frontlane-static.git
-cd frontlane-static
-cargo build --release
-```
+    <!-- Card 5 -->
+    <div class="bento-card bento-wide reveal delay-1">
+      <div class="bento-icon">⏱️</div>
+      <h3>Smart Progress ETA</h3>
+      <p>Beautiful, terminal-native CLI output that predicts exactly how long your archive will take based on active sitemap discovery rates and real-time bandwidth metrics.</p>
+    </div>
+  </div>
+</section>
 
-The compiled binary will be located at `target/release/frontlane-static`.
-
-## 🚀 Usage
-
-The CLI is extremely simple to use. Provide the target URL and an output directory.
-
-```bash
-frontlane-static "https://example.com" --output ./backup
-```
-
-### Advanced Options
-
-*   `--max-depth <NUMBER>`: Limit how deep the spider crawls (e.g., `--max-depth 1` for just the root layer).
-*   `--headless`: Use a headless Chromium browser to render JavaScript before downloading the HTML.
-*   `--retries <NUMBER>`: Number of times to retry a failed asset download (default: 3).
-*   `--min-size <BYTES>` / `--max-size <BYTES>`: Only download assets within this size range.
+<style>
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+</style>
