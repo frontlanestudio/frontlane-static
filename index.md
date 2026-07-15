@@ -95,6 +95,36 @@ title: "Frontlane Static - Documentation"
   </div>
 </section>
 
+<section class="install-section container reveal" id="install">
+  <div class="section-header">
+    <h2 class="hero-title" style="font-size: 2.5rem;">Quick Install</h2>
+    <p class="hero-subtitle">Run it instantly without installing anything, or install it globally.</p>
+  </div>
+
+  <div class="install-grid">
+    <div class="install-card">
+      <h3>NPM / NPX</h3>
+      <p>Run instantly via npx (requires Node.js):</p>
+      <pre><code>npx @frontlanestudio/frontlane-static "https://example.com" --output ./backup</code></pre>
+      <p style="margin-top:1rem; font-size:0.9em;">Or install globally: <code>npm install -g @frontlanestudio/frontlane-static</code></p>
+    </div>
+
+    <div class="install-card">
+      <h3>Bun</h3>
+      <p>Run instantly via bun (blazing fast):</p>
+      <pre><code>bunx @frontlanestudio/frontlane-static "https://example.com" --output ./backup</code></pre>
+      <p style="margin-top:1rem; font-size:0.9em;">Or install globally: <code>bun add -g @frontlanestudio/frontlane-static</code></p>
+    </div>
+
+    <div class="install-card install-wide">
+      <h3>Cargo (Rust Native)</h3>
+      <p>Compile and install natively from crates.io (requires Rust):</p>
+      <pre><code>cargo install frontlane-static</code></pre>
+      <p style="margin-top:1rem; font-size:0.9em;">Then run: <code>frontlane-static "https://example.com" --output ./backup</code></p>
+    </div>
+  </div>
+</section>
+
 <style>
 @keyframes fadeIn {
   0% { opacity: 0; }

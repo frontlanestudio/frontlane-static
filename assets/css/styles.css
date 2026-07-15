@@ -404,6 +404,59 @@ a:hover {
   .hero-title { font-size: 2.5rem; }
 }
 
+.install-section {
+  padding: 2rem 0 6rem;
+}
+
+.install-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.install-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.install-card h3 {
+  color: var(--text-heading);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.install-card p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.install-card pre {
+  background: #1C1E23;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+  overflow-x: auto;
+}
+
+.install-card code {
+  font-family: 'Fira Code', monospace;
+  color: #98C379;
+  font-size: 0.9rem;
+}
+
+.install-wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .install-grid { grid-template-columns: 1fr; }
+  .install-wide { grid-column: span 1; }
+}
+
 /* --- Reveal Animations --- */
 .reveal {
   opacity: 0;
