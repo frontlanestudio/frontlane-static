@@ -1190,6 +1190,40 @@ dependencies = [
 ]
 
 [[package]]
+name = "frontlane-static"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "base64",
+ "clap",
+ "colored",
+ "csv",
+ "dashmap",
+ "futures-util",
+ "headless_chrome",
+ "html2md",
+ "indicatif",
+ "lazy_static",
+ "mime_guess",
+ "mockito",
+ "pathdiff",
+ "predicates",
+ "regex",
+ "reqwest 0.13.4",
+ "scraper",
+ "serde",
+ "sitemap",
+ "spider",
+ "tempfile",
+ "tokio",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
+ "url",
+]
+
+[[package]]
 name = "fs_extra"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3159,40 +3193,6 @@ dependencies = [
  "spki",
  "subtle",
  "zeroize",
-]
-
-[[package]]
-name = "rust-site-backup"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "assert_cmd",
- "base64",
- "clap",
- "colored",
- "csv",
- "dashmap",
- "futures-util",
- "headless_chrome",
- "html2md",
- "indicatif",
- "lazy_static",
- "mime_guess",
- "mockito",
- "pathdiff",
- "predicates",
- "regex",
- "reqwest 0.13.4",
- "scraper",
- "serde",
- "sitemap",
- "spider",
- "tempfile",
- "tokio",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
- "url",
 ]
 
 [[package]]
