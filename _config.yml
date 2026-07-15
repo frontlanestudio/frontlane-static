@@ -1,0 +1,16 @@
+title: Frontlane Static
+description: Turn dynamic enterprise sites into blazing-fast static clones.
+url: "https://frontlanestudio.github.io"
+baseurl: "/frontlane-static"
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
