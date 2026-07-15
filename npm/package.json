@@ -1,6 +1,6 @@
 {
-  "name": "frontlane-static",
-  "version": "1.0.0",
+  "name": "@frontlanestudio/frontlane-static",
+  "version": "0.1.0",
   "description": "Turn dynamic enterprise sites into blazing-fast static clones.",
   "main": "index.js",
   "bin": {
