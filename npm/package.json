@@ -1,0 +1,33 @@
+{
+  "name": "frontlane-static",
+  "version": "1.0.0",
+  "description": "Turn dynamic enterprise sites into blazing-fast static clones.",
+  "main": "index.js",
+  "bin": {
+    "frontlane-static": "bin/frontlane-static.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontlanestudio/frontlane-static.git"
+  },
+  "keywords": [
+    "scraper",
+    "crawler",
+    "archiver",
+    "static",
+    "clone",
+    "rust"
+  ],
+  "author": "Frontlane Studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frontlanestudio/frontlane-static/issues"
+  },
+  "homepage": "https://frontlanestudio.github.io/frontlane-static",
+  "engines": {
+    "node": ">=14"
+  }
+}
