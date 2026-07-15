@@ -20,7 +20,7 @@ title: "Frontlane Static - Documentation"
 
   <div class="hero-actions reveal delay-3">
     <a href="#install" class="btn-primary">Get Started</a>
-    <a href="https://github.com/frontlanestudio/frontlane-static" class="btn-secondary">View Source</a>
+    <a href="https://github.com/frontlanestudio/frontlane-static" class="btn-secondary" target="_blank" rel="noopener noreferrer">View Source</a>
   </div>
 
   <div class="terminal-wrapper reveal delay-4">

@@ -6,6 +6,14 @@ baseurl: "/frontlane-static"
 markdown: kramdown
 highlighter: rouge
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+twitter:
+  username: frontlanestudio
+  card: summary_large_image
+
 exclude:
   - Gemfile
   - Gemfile.lock
