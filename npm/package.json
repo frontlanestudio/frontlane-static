@@ -28,6 +28,6 @@
   },
   "homepage": "https://frontlanestudio.github.io/frontlane-static",
   "engines": {
-    "node": ">=14"
+    "node": ">=24.0.0"
   }
 }
