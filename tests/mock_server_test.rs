@@ -1,9 +1,10 @@
-use assert_cmd::Command;
+use assert_cmd::cargo::cargo_bin;
 use mockito::Server;
 use std::fs;
+use std::process::Command;
 use tempfile::tempdir;
 
-#[tokio::test]
+#[tokio::test(flavor = "multi_thread")]
 async fn test_standard_crawl_and_assets() {
     let mut server = Server::new_async().await;
     
@@ -63,13 +64,18 @@ async fn test_standard_crawl_and_assets() {
     let output_path = temp_dir.path().join("backup");
 
     // Run the CLI
-    let mut cmd = Command::cargo_bin("frontlane-static").unwrap();
-    cmd.arg(server.url())
+    let mut cmd = Command::new(cargo_bin("frontlane-static"));
+    cmd.env("RUST_BACKTRACE", "full")
+       .arg(server.url())
        .arg("--output")
        .arg(output_path.to_str().unwrap())
-       .arg("--extract-metadata");
+       .arg("--no-sitemaps")
+       .arg("--extract-metadata")
+       .arg("--timeout")
+       .arg("2");
 
-    cmd.assert().success();
+    let status = cmd.status().expect("failed to run frontlane-static");
+    assert!(status.success());
 
     // Verify files were created
     assert!(output_path.join("index.html").exists(), "index.html was not created");
@@ -84,7 +90,7 @@ async fn test_standard_crawl_and_assets() {
     assert!(metadata_content.contains("About"), "Metadata should contain the title of the about page");
 }
 
-#[tokio::test]
+#[tokio::test(flavor = "multi_thread")]
 async fn test_error_handling() {
     let mut server = Server::new_async().await;
     
@@ -101,16 +107,19 @@ async fn test_error_handling() {
             </body>
             </html>
         "#)
+        .expect_at_least(1)
         .create_async().await;
 
     let _m_404 = server.mock("GET", "/missing.html")
         .with_status(404)
         .with_body("Not Found")
+        .expect_at_least(1)
         .create_async().await;
         
     let _m_500 = server.mock("GET", "/error.html")
         .with_status(500)
         .with_body("Internal Server Error")
+        .expect_at_least(1)
         .create_async().await;
 
     // Create a temporary directory for output
@@ -118,12 +127,16 @@ async fn test_error_handling() {
     let output_path = temp_dir.path().join("backup");
 
     // Run the CLI WITHOUT download-error-pages
-    let mut cmd = Command::cargo_bin("frontlane-static").unwrap();
+    let mut cmd = Command::new(cargo_bin("frontlane-static"));
     cmd.arg(server.url())
        .arg("--output")
-       .arg(output_path.to_str().unwrap());
+       .arg(output_path.to_str().unwrap())
+       .arg("--no-sitemaps")
+       .arg("--timeout")
+       .arg("2");
 
-    cmd.assert().success();
+    let status1 = cmd.status().expect("failed to run frontlane-static");
+    assert!(status1.success());
 
     // Verify index exists, but errors were skipped
     assert!(output_path.join("index.html").exists());
@@ -134,13 +147,17 @@ async fn test_error_handling() {
     let temp_dir_errors = tempdir().unwrap();
     let output_path_errors = temp_dir_errors.path().join("backup_errors");
 
-    let mut cmd2 = Command::cargo_bin("frontlane-static").unwrap();
+    let mut cmd2 = Command::new(cargo_bin("frontlane-static"));
     cmd2.arg(server.url())
         .arg("--output")
         .arg(output_path_errors.to_str().unwrap())
-        .arg("--download-error-pages");
+        .arg("--no-sitemaps")
+        .arg("--download-error-pages")
+        .arg("--timeout")
+        .arg("2");
 
-    cmd2.assert().success();
+    let status2 = cmd2.status().expect("failed to run frontlane-static");
+    assert!(status2.success());
 
     // Verify error pages were downloaded
     assert!(output_path_errors.join("index.html").exists());

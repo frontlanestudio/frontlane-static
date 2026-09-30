@@ -1,6 +1,6 @@
 [package]
 name = "frontlane-static"
-version = "0.1.0"
+version = "0.1.2"
 edition = "2024"
 description = "Turn dynamic enterprise sites into blazing-fast static clones."
 repository = "https://github.com/frontlanestudio/frontlane-static"
@@ -24,6 +24,8 @@ regex = "1.13.0"
 reqwest = { version = "0.13.4", features = ["stream"] }
 scraper = "0.27.0"
 serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+chrono = "0.4.45"
 sitemap = "0.4.1"
 spider = { version = "2.52.9", features = ["chrome", "sitemap"] }
 tokio = { version = "1.52.3", features = ["full"] }

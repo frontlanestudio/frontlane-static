@@ -22,3 +22,11 @@ calljacob.com/
 calljacob_test/
 *.log
 .DS_Store
+
+# Coverage & Local Environments
+lcov.info
+coverage.jsonl
+tmp/
+.env
+coverage_report
+target/coverage

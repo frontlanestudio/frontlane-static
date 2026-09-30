@@ -1191,11 +1191,12 @@ dependencies = [
 
 [[package]]
 name = "frontlane-static"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "assert_cmd",
  "base64",
+ "chrono",
  "clap",
  "colored",
  "csv",
@@ -1213,6 +1214,7 @@ dependencies = [
  "reqwest 0.13.4",
  "scraper",
  "serde",
+ "serde_json",
  "sitemap",
  "spider",
  "tempfile",
