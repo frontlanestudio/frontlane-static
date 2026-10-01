@@ -30,3 +30,4 @@ tmp/
 .env
 coverage_report
 target/coverage
+.qlty/
